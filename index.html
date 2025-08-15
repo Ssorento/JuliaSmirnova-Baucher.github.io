@@ -3,46 +3,34 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Julia Smirnova-Baucher — CV</title>
-  <meta name="description" content="Professional CV of Julia Smirnova-Baucher - Senior BI Product Manager with expertise in transportation services, e-commerce, and data analytics." />
-  <meta name="author" content="Julia Smirnova-Baucher" />
-
-  <meta property="og:title" content="Julia Smirnova-Baucher — CV" />
-  <meta property="og:description" content="Professional CV of Julia Smirnova-Baucher - Senior BI Product Manager with expertise in transportation services, e-commerce, and data analytics." />
-  <meta property="og:type" content="website" />
-  <meta property="og:image" content="https://lovable.dev/opengraph-image-p98pqg.png" />
-
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:site" content="@lovable_dev" />
-  <meta name="twitter:image" content="https://lovable.dev/opengraph-image-p98pqg.png" />
-  
+  <title>Julia Baucher — CV</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  
   <style>
-    :root {
-      /* Professional CV Colors - All HSL */
-      --cv-background: 0 0% 0%; /* Black page background */
-      --cv-content-bg: 31 31% 12%; /* Dark gray content background */
-      --cv-text-primary: 0 0% 90%; /* Light gray text */
-      --cv-text-secondary: 0 0% 79%; /* Secondary gray text */
-      --cv-accent: 0 0% 100%; /* Pure white for accents */
-      
-      /* Card System */
-      --cv-card-bg: 0 0% 0%; /* Black card background */
-      --cv-card-border: 0 0% 100%; /* White borders */
-      --cv-card-border-hover: 0 0% 100%; /* White hover borders */
-      
-      /* Contact section special styling */
-      --cv-contact-bg: 0 0% 8%; /* Slightly lighter for contact */
-      --cv-contact-border: 0 0% 25%; /* Subtle border */
-      
-      /* Design tokens */
-      --cv-radius: 0.5rem;
-      --cv-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
-      --cv-transition: all 0.2s ease;
-    }
+
+
+:root {
+  --primary-color: #ffffff; /* Headings & bullet points in bright white */
+  --primary-light: #ffffff; /* Hover/accent remains bright white */
+  --primary-dark: #ffffff;  /* Strong white for headings */
+
+  --text-primary: #e6e6e6;  /* Main body text - softer white */
+  --text-primary-hover: #ffffff; /* Brighter on hover */
+  --text-secondary: #c9c9c9; /* Secondary info text */
+  --text-on-primary: #000000; /* Text on colored/gradient backgrounds */
+
+  --background: #000000; /* Page background */
+  --surface: #121212; /* Card background */
+  --surface-hover: #1e1e1e; /* Slightly lighter grey for card hover */
+
+  --border: #2e2e2e; /* Same subtle border for normal & hover */
+  --shadow-sm: 0 1px 2px rgba(0,0,0,0.6);
+  --shadow-md: 0 4px 6px rgba(0,0,0,0.6);
+  --shadow-lg: 0 10px 15px rgba(0,0,0,0.6);
+
+  --gradient-bg: linear-gradient(135deg, rgba(255,255,255,0.08) 0%, rgba(255,255,255,0.05) 100%);
+}
 
     * {
       margin: 0;
@@ -61,9 +49,9 @@
     body {
       font-family: 'Inter', system-ui, -apple-system, sans-serif;
       line-height: 1.7;
-      color: hsl(var(--cv-text-primary));
-      background: hsl(var(--cv-background));
-      background-image: url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2072');
+      color: var(--text-primary);
+      background: var(--background);
+      background-image: url('bg.jpg');
       background-size: cover;
       background-repeat: no-repeat;
       background-position: center center;
@@ -71,7 +59,7 @@
       min-height: 100vh;
     }
 
-    .cv-container {
+    .main-container {
       max-width: 900px;
       margin: 0 auto;
       padding: 2rem;
@@ -80,15 +68,13 @@
     }
 
     .cv-content {
-      background: hsl(var(--cv-content-bg) / 0.95);
+      background: rgba(31, 31, 31, 0.95);
       backdrop-filter: blur(10px);
       border-radius: 16px;
       padding: 3rem;
-      box-shadow: 0 10px 15px rgba(0, 0, 0, 0.6);
-      border: 1px solid rgba(255, 255, 255, 0.1);
+      box-shadow: var(--shadow-lg);
+      border: 1px solid rgba(64, 64, 64, 0.3);
       margin-top: 1rem;
-      /* Fit content - remove fixed height */
-      min-height: fit-content;
     }
 
     /* Language Selector */
@@ -102,35 +88,35 @@
     }
 
     #language-selector {
-      background: hsl(var(--cv-card-bg));
-      border: 2px solid hsl(var(--cv-contact-border));
+      background: var(--surface);
+      border: 2px solid var(--border);
       border-radius: 8px;
       padding: 0.75rem 1rem;
       font-size: 0.9rem;
       font-weight: 500;
-      color: hsl(var(--cv-text-primary));
+      color: var(--text-primary);
       cursor: pointer;
-      transition: var(--cv-transition);
-      box-shadow: var(--cv-shadow);
+      transition: all 0.2s ease;
+      box-shadow: var(--shadow-sm);
       font-family: 'Inter', sans-serif;
     }
 
     #language-selector:hover {
-      border-color: hsl(var(--cv-accent));
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+      border-color: var(--primary-color);
+      box-shadow: var(--shadow-md);
     }
 
     #language-selector:focus {
       outline: none;
-      border-color: hsl(var(--cv-accent));
-      box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.1);
+      border-color: var(--primary-color);
+      box-shadow: 0 0 0 3px rgba(96, 165, 250, 0.1);
     }
 
     /* Typography */
     h1 {
       font-size: 2.5rem;
       font-weight: 700;
-      color: hsl(var(--cv-accent));
+      color: var(--primary-color);
       margin-bottom: 1.5rem;
       letter-spacing: -0.025em;
       line-height: 1.2;
@@ -139,12 +125,12 @@
     h2 {
       font-size: 1.5rem;
       font-weight: 600;
-      color: hsl(var(--cv-accent));
+      color: var(--primary-dark);
       margin: 2.5rem 0 1.5rem 0;
       letter-spacing: -0.015em;
       line-height: 1.3;
       padding-bottom: 0.5rem;
-      border-bottom: 2px solid hsl(var(--cv-accent));
+      border-bottom: 2px solid var(--primary-color);
       position: relative;
     }
 
@@ -155,48 +141,16 @@
       left: 0;
       width: 3rem;
       height: 2px;
-      background: hsl(var(--cv-accent));
+      background: var(--primary-light);
     }
 
-    /* Unified Card Styling - Core Implementation */
-    .cv-card {
-      background: hsl(var(--cv-card-bg));
-      padding: 1.5rem;
-      border-radius: 8px;
-      margin-bottom: 1.5rem;
-      transition: var(--cv-transition);
-      /* Default: no visible borders except left accent */
-      border: 1px solid transparent;
-      border-left: 4px solid hsl(var(--cv-accent));
-      box-shadow: 0 1px 2px rgba(0,0,0,0.6);
-    }
-
-    .cv-card:hover {
-      /* Hover: all borders appear in white */
-      border: 1px solid hsl(var(--cv-card-border-hover));
-      border-left: 4px solid hsl(var(--cv-accent));
-      transform: translateY(-1px);
-      box-shadow: var(--cv-shadow);
-    }
-
-    .cv-card:last-child {
-      margin-bottom: 0;
-    }
-
-    /* Contact Section - Special Styling */
+    /* Contact Section */
     .contact {
-      background: hsl(var(--cv-contact-bg));
+      background: var(--gradient-bg);
       padding: 2rem;
       border-radius: 12px;
       margin-bottom: 2.5rem;
-      border: 1px solid hsl(var(--cv-contact-border) / 0.3);
-      transition: var(--cv-transition);
-    }
-
-    .contact:hover {
-      border: 1px solid hsl(var(--cv-card-border-hover));
-      transform: translateY(-1px);
-      box-shadow: var(--cv-shadow);
+      /*border: 1px solid rgba(96, 165, 250, 0.2);*/
     }
 
     .contact p {
@@ -205,7 +159,6 @@
       display: flex;
       align-items: center;
       gap: 0.75rem;
-      color: hsl(var(--cv-text-primary));
     }
 
     .contact p:last-child {
@@ -213,26 +166,57 @@
     }
 
     .contact a {
-      color: hsl(var(--cv-accent));
+      color: var(--primary-color);
       text-decoration: none;
       font-weight: 500;
       transition: color 0.2s ease;
     }
 
     .contact a:hover {
+      color: var(--primary-light);
       text-decoration: underline;
     }
 
     .contact a:focus {
-      outline: 2px solid hsl(var(--cv-accent));
+      outline: 2px solid var(--primary-color);
       outline-offset: 2px;
       border-radius: 2px;
     }
 
-    /* Job Title Styling */
+    /* Sections */
+    section {
+      margin-bottom: 3rem;
+    }
+
+    section:last-child {
+      margin-bottom: 0;
+    }
+
+    /* Experience Items */
+    .experience-item, .education-item {
+      margin-bottom: 1.5rem;
+      padding: 1.25rem;
+      background: var(--surface);
+      border-radius: 8px;
+      border: 1px solid var(--border);
+    }
+
+
+	/* HOVER EFFECT */
+	 .experience-item:hover, .education-item:hover, .award-item:hover, .skills-category:hover {
+      box-shadow: var(--shadow-md);
+      border-color: var(--primary-color);
+    }
+	
+	
+
+    .experience-item:last-child, .education-item:last-child {
+      margin-bottom: 0;
+    }
+
     .job-title {
       font-weight: 600;
-      color: hsl(var(--cv-accent));
+      color: var(--text-primary);
       font-size: 1.1rem;
       margin-bottom: 1rem;
       line-height: 1.4;
@@ -250,7 +234,7 @@
       padding-left: 2rem;
       margin-bottom: 0.75rem;
       line-height: 1.6;
-      color: hsl(var(--cv-text-primary));
+      color: var(--text-primary);
     }
 
     li::before {
@@ -260,7 +244,7 @@
       top: 0.75rem;
       width: 6px;
       height: 6px;
-      background: hsl(var(--cv-accent));
+      background: var(--primary-color);
       transform: rotate(45deg);
     }
 
@@ -268,63 +252,34 @@
       margin-bottom: 0;
     }
 
-    /* Awards Section - Equal Height Cards */
+    /* Awards Section */
     .awards-grid {
       display: grid;
       gap: 1rem;
       margin-top: 1rem;
-      grid-template-columns: repeat(1, 1fr);
-    }
-
-    @media (min-width: 769px) {
-      .awards-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
     }
 
     .award-item {
-      background: hsl(var(--cv-card-bg));
+      background: var(--surface);
       padding: 1.25rem;
       border-radius: 8px;
-      transition: var(--cv-transition);
-      /* Default: no visible borders */
-      border: 1px solid transparent;
-      box-shadow: 0 1px 2px rgba(0,0,0,0.6);
-      /* Equal height and centered content */
-      height: 8rem;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow-sm);
+      transition: all 0.2s ease;
     }
 
     .award-item:hover {
-      /* Hover: all borders appear in white */
-      border: 1px solid hsl(var(--cv-card-border-hover));
-      transform: translateY(-1px);
-      box-shadow: var(--cv-shadow);
+      box-shadow: var(--shadow-md);
+      border-color: var(--primary-color);
     }
 
     /* Skills Section */
     .skills-category {
-      background: hsl(var(--cv-card-bg));
       margin-bottom: 1.5rem;
       padding: 1.25rem;
+      background: var(--surface);
       border-radius: 8px;
-      transition: var(--cv-transition);
-      /* Default: no visible borders except left accent */
-      border: 1px solid transparent;
-      border-left: 4px solid hsl(var(--cv-accent));
-      box-shadow: 0 1px 2px rgba(0,0,0,0.6);
-    }
-
-    .skills-category:hover {
-      /* Hover: all borders appear in white */
-      border: 1px solid hsl(var(--cv-card-border-hover));
-      border-left: 4px solid hsl(var(--cv-accent));
-      transform: translateY(-1px);
-      box-shadow: var(--cv-shadow);
+      border: 1px solid var(--border);
     }
 
     .skills-category:last-child {
@@ -333,12 +288,12 @@
 
     .skills-title {
       font-weight: 600;
-      color: hsl(var(--cv-accent));
+      color: var(--primary-color);
       margin-bottom: 0.5rem;
     }
 
     .skills-content {
-      color: hsl(var(--cv-text-secondary));
+      color: var(--text-secondary);
       line-height: 1.6;
     }
 
@@ -347,16 +302,16 @@
       position: fixed;
       bottom: 20px;
       right: 20px;
-      background: linear-gradient(135deg, hsl(var(--cv-accent)), hsl(var(--cv-accent) / 0.8));
-      color: hsl(var(--cv-background));
+      background: linear-gradient(135deg, var(--primary-color), var(--primary-light));
+      color: var(--text-on-primary);
       border: none;
       border-radius: 50%;
-      width: 64px;
-      height: 64px;
+      width: 60px;
+      height: 60px;
       font-size: 24px;
       cursor: move;
       z-index: 9999;
-      box-shadow: var(--cv-shadow);
+      box-shadow: var(--shadow-lg);
       transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
       display: flex;
       align-items: center;
@@ -365,12 +320,12 @@
 
     #chatbot-launcher:hover {
       transform: scale(1.05);
-      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3);
+      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
     }
 
     #chatbot-launcher:focus {
       outline: none;
-      box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.3), var(--cv-shadow);
+      box-shadow: 0 0 0 3px rgba(96, 165, 250, 0.3), var(--shadow-lg);
     }
 
     #chatbot-modal {
@@ -381,8 +336,8 @@
       width: 100%;
       height: 100%;
       z-index: 9998;
-      background: hsl(var(--cv-card-bg));
-      box-shadow: var(--cv-shadow);
+      background: var(--surface);
+      box-shadow: var(--shadow-lg);
       border-radius: 12px 12px 0 0;
     }
 
@@ -398,7 +353,7 @@
       top: 15px;
       right: 15px;
       background: #ef4444;
-      color: white;
+      color: var(--text-on-primary);
       border: none;
       border-radius: 50%;
       width: 32px;
@@ -410,7 +365,7 @@
       align-items: center;
       justify-content: center;
       transition: all 0.2s ease;
-      box-shadow: 0 1px 2px rgba(0,0,0,0.6);
+      box-shadow: var(--shadow-sm);
     }
 
     #chatbot-close:hover {
@@ -425,7 +380,7 @@
 
     /* Responsive Design */
     @media (max-width: 768px) {
-      .cv-container {
+      .main-container {
         padding: 1rem;
       }
 
@@ -446,7 +401,7 @@
         padding: 1.5rem;
       }
 
-      .cv-card, .skills-category {
+      .experience-item, .education-item {
         padding: 1.25rem;
       }
 
@@ -471,6 +426,10 @@
       #chatbot-iframe {
         border-radius: 12px;
       }
+
+      .awards-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
     }
 
     /* Print Styles */
@@ -481,7 +440,7 @@
         color: black !important;
       }
 
-      .cv-container {
+      .main-container {
         max-width: none;
         margin: 0;
         padding: 0;
@@ -510,16 +469,11 @@
         text-decoration: underline !important;
       }
 
-      .cv-card, .skills-category, .award-item {
+      .experience-item, .education-item, .skills-category, .award-item {
         background: white !important;
         box-shadow: none !important;
         border: 1px solid #ccc !important;
         break-inside: avoid;
-      }
-
-      .contact {
-        background: white !important;
-        border: 1px solid #ccc !important;
       }
 
       * {
@@ -529,12 +483,14 @@
 
     /* Animation for content switching */
     .cv-section {
+      display: none;              /* hide non-active sections so they don't take space */
       opacity: 0;
       transform: translateY(10px);
       transition: all 0.3s ease;
     }
 
     .cv-section.active {
+      display: block;             /* only the active language section participates in layout */
       opacity: 1;
       transform: translateY(0);
     }
@@ -542,7 +498,7 @@
 </head>
 
 <body>
-  <div class="cv-container">
+  <div class="main-container">
     <div class="language-selector-container">
       <select id="language-selector">
         <option value="en">English</option>
@@ -553,17 +509,20 @@
     <div class="cv-content">
       <!-- ENGLISH CV -->
       <div id="cv-en" class="cv-section active">
-        <h1>Julia Smirnova-Baucher</h1>
+        <h1>Julia Baucher</h1>
         <div class="contact">
           <p>📞 +33 (0)6 62 72 83 22</p>
           <p>📧 <a href="mailto:juliabaucher.work@gmail.com">juliabaucher.work@gmail.com</a></p>
-          <p>🔗 <a href="https://linkedin.com/in/juliasmirnova" target="_blank">linkedin.com/in/juliasmirnova</a></p>
+          <p>🔗 <a href="https://linkedin.com/in/juliabaucher" target="_blank">linkedin.com/in/juliabaucher</a></p>
+		  <p>🌐 <a href="https://juliabaucher.github.io/" target="_blank">juliabaucher.github.io</a></p>
+		  <p>🌍 Citizenship: French</p>
+		  
         </div>
 
         <section>
           <h2>Work Experience</h2>
           
-          <div class="cv-card">
+          <div class="experience-item">
             <div class="job-title">Senior BI Product Manager Tech for Transportation Services — AMAZON, Luxembourg (2021–2025)</div>
             <ul>
               <li>Defined product vision, strategy, risks, success metrics for Logistic Optimisations webapps, ML models.</li>
@@ -573,7 +532,7 @@
             </ul>
           </div>
 
-          <div class="cv-card">
+          <div class="experience-item">
             <div class="job-title">Product Manager & Consultant for Revenue Accounting & Finance — Amadeus, France (2013–2020)</div>
             <ul>
               <li>Defined product strategy, identified new opportunities, aligned priorities with airline's consortium, translated business needs into product features, executed programs for Airline's Revenue Accounting.</li>
@@ -582,7 +541,7 @@
             </ul>
           </div>
 
-          <div class="cv-card">
+          <div class="experience-item">
             <div class="job-title">Responsable de Produit en e-Commerce & Shopping — Amadeus, France (2006–2013)</div>
             <ul>
               <li>Led development of B2C airline's web and mobile applications with millions of monthly users.</li>
@@ -592,14 +551,14 @@
             </ul>
           </div>
 
-          <div class="cv-card">
+          <div class="experience-item">
             <div class="job-title">Research Engineer — University of Cambridge, UK (2006)</div>
             <ul>
               <li>Initiated a research stream in injection moulding between Ecole des Mines and Cambridge.</li>
             </ul>
           </div>
 
-          <div class="cv-card">
+          <div class="experience-item">
             <div class="job-title">Data analyst — McKinsey & Company, Russia (2001)</div>
             <ul>
               <li>Managed marketing research and data analysis.</li>
@@ -631,10 +590,10 @@
 
         <section>
           <h2>Education</h2>
-          <div class="cv-card">
+          <div class="education-item">
             <div class="job-title">PhD in Computational Mechanics — Ecole des Mines de Paris, France (2006)</div>
           </div>
-          <div class="cv-card">
+          <div class="education-item">
             <div class="job-title">Engineer's Diploma in Mechanics — Bauman Moscow State Technical University, Russia (2002)</div>
           </div>
         </section>
@@ -662,19 +621,20 @@
 
       <!-- FRENCH CV -->
       <div id="cv-fr" class="cv-section">
-        <h1>Julia Smirnova-Baucher</h1>
+        <h1>Julia Baucher</h1>
 
         <div class="contact">
           <p>📞 +33 (0)6 62 72 83 22</p>
           <p>📧 <a href="mailto:juliabaucher.work@gmail.com">juliabaucher.work@gmail.com</a></p>
-          <p>🔗 <a href="https://linkedin.com/in/juliasmirnova" target="_blank">linkedin.com/in/juliasmirnova</a></p>
-          <p>Nationalité : Française</p>
+          <p>🔗 <a href="https://linkedin.com/in/juliabaucher" target="_blank">linkedin.com/in/juliabaucher</a></p>
+		  <p>🌐 <a href="https://juliabaucher.github.io/" target="_blank">juliabaucher.github.io</a></p>
+          <p>🌍 Nationalité : Française</p>
         </div>
 
         <section>
           <h2>Expérience Professionnelle</h2>
 
-          <div class="cv-card">
+          <div class="experience-item">
             <div class="job-title">Responsable de Produit Tech en Logistique — AMAZON, Luxembourg (2021–2025)</div>
             <ul>
               <li>Définition de stratégie produit des webapps et modèles ML pour l'optimisation logistique.</li>
@@ -684,7 +644,7 @@
             </ul>
           </div>
 
-          <div class="cv-card">
+          <div class="experience-item">
             <div class="job-title">Responsable de Produit & Consultant — Amadeus, France (2013–2020)</div>
             <ul>
               <li>Gestion de développement d'un logiciel de comptabilité et d'audit pour les compagnies aériennes.</li>
@@ -694,7 +654,7 @@
             </ul>
           </div>
 
-          <div class="cv-card">
+          <div class="experience-item">
             <div class="job-title">Responsable Produit e-Commerce & Shopping — Amadeus, France (2006–2013)</div>
             <ul>
               <li>Pilotage du développement de apps web et mobile pour des compagnies aériennes avec plusieurs millions d'utilisateurs mensuels (Lufthansa, Japan Airlines, LATAM,..): rédaction de cahiers des charges et spécifications, pilotage des projets, élaboration des scénarios de tests et support client.</li>
@@ -705,7 +665,7 @@
             </ul>
           </div>
 
-          <div class="cv-card">
+          <div class="experience-item">
             <div class="job-title">Ingénieur de Recherche — Université de Cambridge, UK (2006)</div>
             <ul>
               <li>Développement d'un modèle mathématique pour un phénomène physique dans le moulage par injection.</li>
@@ -738,10 +698,10 @@
 
         <section>
           <h2>Formation</h2>
-          <div class="cv-card">
+          <div class="education-item">
             <div class="job-title">Doctorat en Mécanique Numérique — École des Mines de Paris, France (2006)</div>
           </div>
-          <div class="cv-card">
+          <div class="education-item">
             <div class="job-title">Diplôme d'Ingénieur en Mécanique — Université Technique d'État de Moscou, Russie (2002)</div>
           </div>
         </section>
@@ -758,22 +718,14 @@
           </div>
           <div class="skills-category">
             <div class="skills-title">Langues :</div>
-            <div class="skills-content">Français, Anglais, Russe (courants) ; Espagnol (niveau professionnel)</div>
+            <div class="skills-content">Français, Anglais, Russe (courants) ; Espagnol (niveau débutant)</div>
           </div>
         </section>
       </div>
     </div>
   </div>
 
-  <!-- Chatbot -->
-  <button id="chatbot-launcher">💬</button>
-  <div id="chatbot-modal">
-    <button id="chatbot-close">×</button>
-    <iframe id="chatbot-iframe"
-      src="https://app.chatgptbuilder.io/bots/4517266/l/Julia%20AI%20Assistant?session=${Date.now()}"
-      allow="microphone; camera">
-    </iframe>
-  </div>
+
 
   <script>
     // Language preference persistence
@@ -826,182 +778,6 @@
     });
 
     // Chatbot functionality
-    const launcher = document.getElementById('chatbot-launcher');
-    const modal = document.getElementById('chatbot-modal');
-    const closeBtn = document.getElementById('chatbot-close');
-
-    launcher.addEventListener('click', () => {
-      modal.style.display = 'block';
-      launcher.setAttribute('aria-expanded', 'true');
-    });
-
-    closeBtn.addEventListener('click', () => {
-      modal.style.display = 'none';
-      launcher.setAttribute('aria-expanded', 'false');
-    });
-
-    // Close modal on Escape key
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape' && modal.style.display === 'block') {
-        modal.style.display = 'none';
-        launcher.setAttribute('aria-expanded', 'false');
-        launcher.focus();
-      }
-    });
-
-    // Draggable chatbot launcher
-    let isDragging = false;
-    let startX, startY, startLeft, startTop;
-
-    function initiateDrag(e) {
-      isDragging = true;
-      const clientX = e.touches ? e.touches[0].clientX : e.clientX;
-      const clientY = e.touches ? e.touches[0].clientY : e.clientY;
-      const rect = launcher.getBoundingClientRect();
-      
-      startX = clientX;
-      startY = clientY;
-      startLeft = rect.left;
-      startTop = rect.top;
-      
-      launcher.style.transition = 'none';
-      e.preventDefault();
-    }
-
-    function performDrag(e) {
-      if (!isDragging) return;
-      
-      const clientX = e.touches ? e.touches[0].clientX : e.clientX;
-      const clientY = e.touches ? e.touches[0].clientY : e.clientY;
-      
-      const deltaX = clientX - startX;
-      const deltaY = clientY - startY;
-      
-      const newLeft = Math.max(0, Math.min(window.innerWidth - 64, startLeft + deltaX));
-      const newTop = Math.max(0, Math.min(window.innerHeight - 64, startTop + deltaY));
-      
-      launcher.style.left = newLeft + 'px';
-      launcher.style.top = newTop + 'px';
-      launcher.style.bottom = 'auto';
-      launcher.style.right = 'auto';
-    }
-
-    function completeDrag() {
-      if (isDragging) {
-        isDragging = false;
-        launcher.style.transition = '';
-      }
-    }
-
-    // Mouse events
-    launcher.addEventListener('mousedown', initiateDrag);
-    document.addEventListener('mousemove', performDrag);
-    document.addEventListener('mouseup', completeDrag);
-
-    // Touch events
-    launcher.addEventListener('touchstart', initiateDrag, { passive: false });
-    document.addEventListener('touchmove', performDrag, { passive: false });
-    document.addEventListener('touchend', completeDrag);
-
-    // Accessibility attributes
-    launcher.setAttribute('aria-label', 'Open chat assistant');
-    launcher.setAttribute('aria-expanded', 'false');
-    closeBtn.setAttribute('aria-label', 'Close chat assistant');
-
-    // Update iframe src with timestamp to prevent cache
-    const iframe = document.getElementById('chatbot-iframe');
-    const updateIframeSrc = () => {
-      const baseSrc = "https://app.chatgptbuilder.io/bots/4517266/l/Julia%20AI%20Assistant?session=";
-      iframe.src = baseSrc + Date.now();
-    };
-
-    // Update iframe when modal opens
-    launcher.addEventListener('click', updateIframeSrc);
-
-    // Smooth scrolling for better UX
-    document.documentElement.style.scrollBehavior = 'smooth';
-
-    // Add loading animation for language switching
-    selector.addEventListener('change', () => {
-      const activeSection = document.querySelector('.cv-section.active');
-      if (activeSection) {
-        activeSection.style.opacity = '0.5';
-        setTimeout(() => {
-          activeSection.style.opacity = '1';
-        }, 150);
-      }
-    });
-
-    // Keyboard navigation improvements
-    document.addEventListener('keydown', (e) => {
-      // Focus management for better accessibility
-      if (e.key === 'Tab') {
-        const focusableElements = document.querySelectorAll(
-          'a[href], button, select, input, [tabindex]:not([tabindex="-1"])'
-        );
-        
-        if (modal.style.display === 'block') {
-          // Trap focus within modal when open
-          const modalFocusable = modal.querySelectorAll(
-            'button, iframe, [tabindex]:not([tabindex="-1"])'
-          );
-          
-          if (e.shiftKey) {
-            if (document.activeElement === modalFocusable[0]) {
-              e.preventDefault();
-              modalFocusable[modalFocusable.length - 1].focus();
-            }
-          } else {
-            if (document.activeElement === modalFocusable[modalFocusable.length - 1]) {
-              e.preventDefault();
-              modalFocusable[0].focus();
-            }
-          }
-        }
-      }
-    });
-
-    // Performance optimization - lazy load background image
-    const img = new Image();
-    img.onload = () => {
-      document.body.style.backgroundImage = "url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2072')";
-    };
-    img.src = 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2072';
-
-    // Add intersection observer for smooth animations
-    const observerOptions = {
-      threshold: 0.1,
-      rootMargin: '0px 0px -50px 0px'
-    };
-
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.style.opacity = '1';
-          entry.target.style.transform = 'translateY(0)';
-        }
-      });
-    }, observerOptions);
-
-    // Observe cards for scroll animations
-    document.querySelectorAll('.cv-card, .award-item, .skills-category').forEach(item => {
-      item.style.opacity = '0';
-      item.style.transform = 'translateY(20px)';
-      item.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-      observer.observe(item);
-    });
-
-    // Reduce motion for users who prefer it
-    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-      document.querySelectorAll('.cv-card, .award-item, .skills-category').forEach(item => {
-        item.style.opacity = '1';
-        item.style.transform = 'none';
-        item.style.transition = 'none';
-      });
-    }
-
-    console.log('Professional CV website initialized successfully');
   </script>
-
 </body>
 </html>
