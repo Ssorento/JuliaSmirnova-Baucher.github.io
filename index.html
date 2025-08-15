@@ -721,9 +721,8 @@
     </div>
   </div>
 
-  <!-- Chatbot -->
-  
-   <style>
+<!-- Chatbot -->
+<style>
   #chatbot-launcher {
     position: fixed;
     bottom: 20px;
@@ -735,9 +734,10 @@
     width: 60px;
     height: 60px;
     font-size: 28px;
-    cursor: move;
+    cursor: grab;
     z-index: 9999;
     box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
+    touch-action: none; /* Prevent scrolling while dragging */
   }
 
   #chatbot-modal {
@@ -786,101 +786,89 @@
 
 <button id="chatbot-launcher">💬</button>
 
-...
 <div id="chatbot-modal">
   <button id="chatbot-close">×</button>
   <iframe
     id="chatbot-iframe"
-    src="https://app.chatgptbuilder.io/bots/4517266/l/Julia AI Assistant?session=" 
+    src="https://app.chatgptbuilder.io/bots/4517266/l/Julia%20AI%20Assistant?session="
     allow="microphone; camera"
   ></iframe>
 </div>
 
 <script>
-  // Force unique session each time page loads
   const chatbotIframe = document.getElementById('chatbot-iframe');
-  chatbotIframe.src += Date.now(); // Append timestamp to break history
+  chatbotIframe.src += Date.now();
 
   const launcher = document.getElementById('chatbot-launcher');
   const modal = document.getElementById('chatbot-modal');
   const closeBtn = document.getElementById('chatbot-close');
 
   let isDragging = false,
-      offsetX = 0,
-      offsetY = 0,
       startX = 0,
       startY = 0,
-      moved = false;
+      moved = false,
+      translateX = 0,
+      translateY = 0;
 
-  // Open chatbot when not dragging
-  const openChatbot = () => {
+  function openChatbot() {
     modal.style.display = 'block';
-    // Reset iframe to a new session when opened
-    chatbotIframe.src = "https://app.chatgptbuilder.io/bots/4517266/l/Julia AI Assistant?session=" + Date.now();
-  };
+    chatbotIframe.src = "https://app.chatgptbuilder.io/bots/4517266/l/Julia%20AI%20Assistant?session=" + Date.now();
+  }
 
   closeBtn.addEventListener('click', () => {
     modal.style.display = 'none';
   });
 
-  /** DESKTOP DRAG **/
+  // Desktop drag
   launcher.addEventListener('mousedown', e => {
     isDragging = true;
-    startX = e.clientX;
-    startY = e.clientY;
-    offsetX = e.clientX - launcher.getBoundingClientRect().left;
-    offsetY = e.clientY - launcher.getBoundingClientRect().top;
+    startX = e.clientX - translateX;
+    startY = e.clientY - translateY;
     moved = false;
+    launcher.style.cursor = 'grabbing';
     e.preventDefault();
   });
 
   document.addEventListener('mousemove', e => {
     if (isDragging) {
-      moved = true;
-      launcher.style.left = (e.clientX - offsetX) + 'px';
-      launcher.style.top = (e.clientY - offsetY) + 'px';
-      launcher.style.bottom = 'auto';
-      launcher.style.right = 'auto';
+      const dx = e.clientX - startX;
+      const dy = e.clientY - startY;
+      if (Math.abs(dx) > 5 || Math.abs(dy) > 5) moved = true;
+      translateX = dx;
+      translateY = dy;
+      launcher.style.transform = `translate(${translateX}px, ${translateY}px)`;
     }
   });
 
-  document.addEventListener('mouseup', e => {
-    if (isDragging && !moved) {
-      openChatbot();
-    }
+  document.addEventListener('mouseup', () => {
+    if (isDragging && !moved) openChatbot();
     isDragging = false;
+    launcher.style.cursor = 'grab';
   });
 
-  /** MOBILE DRAG **/
+  // Mobile drag
   launcher.addEventListener('touchstart', e => {
     if (e.touches.length === 1) {
       isDragging = true;
-      startX = e.touches[0].clientX;
-      startY = e.touches[0].clientY;
-      offsetX = startX - launcher.getBoundingClientRect().left;
-      offsetY = startY - launcher.getBoundingClientRect().top;
+      startX = e.touches[0].clientX - translateX;
+      startY = e.touches[0].clientY - translateY;
       moved = false;
     }
-  });
+  }, { passive: false });
 
   document.addEventListener('touchmove', e => {
     if (isDragging && e.touches.length === 1) {
-      const x = e.touches[0].clientX;
-      const y = e.touches[0].clientY;
-      if (Math.abs(x - startX) > 5 || Math.abs(y - startY) > 5) {
-        moved = true;
-      }
-      launcher.style.left = (x - offsetX) + 'px';
-      launcher.style.top = (y - offsetY) + 'px';
-      launcher.style.bottom = 'auto';
-      launcher.style.right = 'auto';
+      const dx = e.touches[0].clientX - startX;
+      const dy = e.touches[0].clientY - startY;
+      if (Math.abs(dx) > 5 || Math.abs(dy) > 5) moved = true;
+      translateX = dx;
+      translateY = dy;
+      launcher.style.transform = `translate(${translateX}px, ${translateY}px)`;
     }
-  });
+  }, { passive: false });
 
-  document.addEventListener('touchend', e => {
-    if (isDragging && !moved) {
-      openChatbot();
-    }
+  document.addEventListener('touchend', () => {
+    if (isDragging && !moved) openChatbot();
     isDragging = false;
   });
 </script>
